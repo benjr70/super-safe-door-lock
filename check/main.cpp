@@ -4,5 +4,10 @@ using namespace CheckNS;
 
 int main(const int argc, const char *argv[])
 {
-	//Consult documentation on Google Docs sheet
+	Check check;
+	//makeDecision() only switches null to true or false
+	//Therefore, all this needs to do is communicates
+	
+	
+	return 0;
 }

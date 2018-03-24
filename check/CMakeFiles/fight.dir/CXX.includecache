@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/unroot/selfprog/super-safe-door-lock/check/check.cpp
+check.h
+/home/unroot/selfprog/super-safe-door-lock/check/check.h
+
+/home/unroot/selfprog/super-safe-door-lock/check/check.h
+fstream
+-
+iostream
+-
+string
+-
+../sqlapi/SQLAPI.h
+/home/unroot/selfprog/super-safe-door-lock/sqlapi/SQLAPI.h
+
+/home/unroot/selfprog/super-safe-door-lock/check/main.cpp
+check.h
+/home/unroot/selfprog/super-safe-door-lock/check/check.h
+

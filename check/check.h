@@ -1,11 +1,15 @@
 #include <fstream>
 #include <iostream>
 #include <string>
+#include "../sqlapi/SQLAPI.h"
 
 
 /* Goal: Have the server configured so that whenever a login is requested,
  * this is called, looking through its log, it will either confirm or deny
  * the request.
+ * 
+ * Now, because all the timestamps will be determined BY THE CLIENT,
+ * there this script just has to check the database
  * 
  * When receiving a code, it must both determine the user and 
  */
@@ -21,7 +25,8 @@ namespace CheckNS {
 				int userID;
 				int changingCode;
 				int staticCode;
-				int FOBCode[4];
+				//make it easy to copy and paste
+				char FobCODE[4];
 			};
 			struct Attempt
 			{
@@ -37,15 +42,22 @@ namespace CheckNS {
 			int errorCode;
 			
 			std::fstream file;
+			SAConnection connection;
+			SACommand command;
 			
+			
+		
 		public:
 			Check();
-			void readUsers();
-			void readLog();
-			void recordCurrentAttempt();
-			bool determineWhetherToLock(); // will be called by main() separately
+			~Check(); // the destructor can be used to set the file
+			// the file can simply indicate the number of entries
+			// and if it is in an error state
+			Check(int, char, int[]);
+			void readData();
+			void castJudgement(); // will be called by main() separately
 			void suspendManually();
 			void restore();
-			int explainError();
+			int explainError() const;
+			bool isThereAThreat() const;
 	};
 }

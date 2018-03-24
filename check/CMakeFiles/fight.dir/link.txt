@@ -1,0 +1,1 @@
+/usr/lib64/ccache/c++    -rdynamic CMakeFiles/fight.dir/check.cpp.o CMakeFiles/fight.dir/main.cpp.o  -o fight 

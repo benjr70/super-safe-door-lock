@@ -1,0 +1,3 @@
+/home/unroot/selfprog/super-safe-door-lock/check/CMakeFiles/rebuild_cache.dir
+/home/unroot/selfprog/super-safe-door-lock/check/CMakeFiles/check.dir
+/home/unroot/selfprog/super-safe-door-lock/check/CMakeFiles/edit_cache.dir
