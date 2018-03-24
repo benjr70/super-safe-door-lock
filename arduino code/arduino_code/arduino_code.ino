@@ -133,19 +133,19 @@ void readRFID()
 {
   
   rfid.PICC_ReadCardSerial();
-  Serial.print(F("\nPICC type: "));
+  //Serial.print(F("\nPICC type: "));
   MFRC522::PICC_Type piccType = rfid.PICC_GetType(rfid.uid.sak);
-  Serial.println(rfid.PICC_GetTypeName(piccType));
+  //Serial.println(rfid.PICC_GetTypeName(piccType));
   // Check is the PICC of Classic MIFARE type
   if (piccType != MFRC522::PICC_TYPE_MIFARE_MINI &&  
     piccType != MFRC522::PICC_TYPE_MIFARE_1K &&
     piccType != MFRC522::PICC_TYPE_MIFARE_4K) {
-    Serial.println(F("Your tag is not of type MIFARE Classic."));
+  //  Serial.println(F("Your tag is not of type MIFARE Classic."));
     return;
   }
     clearUID();
    
-    Serial.println("Scanned PICC's UID:");
+  //  Serial.println("Scanned PICC's UID:");
     printDec(rfid.uid.uidByte, rfid.uid.size);
     uidString = String(rfid.uid.uidByte[0])+" "+String(rfid.uid.uidByte[1])+" "+String(rfid.uid.uidByte[2])+ " "+String(rfid.uid.uidByte[3]);
     
@@ -162,11 +162,11 @@ void readRFID()
     }
     if(match)
     {
-      Serial.println("\nI know this card!");
+     // Serial.println("\nI know this card!");
       printUnlockMessage();
     }else
     {
-      Serial.println("\nUnknown Card");
+     // Serial.println("\nUnknown Card");
     }
     // Halt PICC
   rfid.PICC_HaltA();
@@ -178,6 +178,7 @@ void printDec(byte *buffer, byte bufferSize) {
     Serial.print(buffer[i] < 0x10 ? " 0" : " ");
     Serial.print(buffer[i], DEC);
   }
+  Serial.println();
 }
   void clearUID()
   {
