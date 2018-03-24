@@ -1,13 +1,14 @@
 import serial
 import serial.tools.list_ports
-import mySQLdb
+import mysql.connector
 fob = 00000000
 keypad = '0000'
 ports = list(serial.tools.list_ports.comports())
-db = MySQLdb.connect("localhost","testuser","test123","TESTDB" )
+db = mysql.connector.connect(user = "Datatest",password = "THANh123",host = "datatest.cmuftxtjbxoj.us-east-1.rds.amazonaws.com",database = "datatest" )
 sql = "INSERT INTO TABLE(FOB, KEYPAD) VALUES (%d ,%s)" % (fob, keypad)
 print ports[0].device
 ser = serial.Serial(ports[0].device,9600)
+print 'test'
 while(True):
     line = ser.readline() #read from arduino
     if len(line) == 4:
